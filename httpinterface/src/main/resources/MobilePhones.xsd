@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.lujiatao.com/httpinterface/MobilePhones"
+	xmlns:tns="http://www.lujiatao.com/httpinterface/MobilePhones"
+	elementFormDefault="qualified">
+
+	<!-- 定义请求 -->
+	<xs:element name="getMobilePhoneRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="model" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- 定义响应 -->
+	<xs:element name="getMobilePhoneResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="mobilePhone" type="tns:MobilePhone" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- 定义复杂类型 -->
+	<xs:complexType name="MobilePhone">
+		<xs:sequence>
+			<xs:element name="brand" type="xs:string" />
+			<xs:element name="model" type="xs:string" />
+			<xs:element name="os" type="tns:os" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- 定义简单类型 -->
+	<xs:simpleType name="os">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ANDROID" />
+			<xs:enumeration value="IOS" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
