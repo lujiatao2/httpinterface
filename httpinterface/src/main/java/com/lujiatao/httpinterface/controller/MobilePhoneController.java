@@ -17,13 +17,13 @@ public class MobilePhoneController {
 
 	private MobilePhoneRepository mobilePhoneRepository = new MobilePhoneRepository();
 
-	@GetMapping("/getMobilePhone")
+	@GetMapping("/mobilePhone")
 	public MobilePhone getMobilePhone(@RequestParam(value = "model") String model) {
 		return mobilePhoneRepository.getMobilePhone(model);
 	}
 
 	@ResponseBody
-	@PostMapping("/saveMobilePhone")
+	@PostMapping("/mobilePhone")
 	public String saveMobilePhone(@RequestBody String body) {
 		JSONObject json = new JSONObject(body);
 		MobilePhone mobilePhone = new MobilePhone();
